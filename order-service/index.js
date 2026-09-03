@@ -5,14 +5,14 @@ app.use(e1.json())
 
 app.post('/addorder', async (req, res) => {
     try {
-        const paymentRes = await fetch('http://localhost:5003/paymentprocess', {
+        const paymentRes = await fetch('http://3.236.82.185:5003/paymentprocess', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(req.body)
         });
         const paymentData = await paymentRes.text();
 
-        const notificationRes = await fetch('http://localhost:5001/sendnotification', {
+        const notificationRes = await fetch('http://44.200.81.164:5001/sendnotification', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(req.body)
